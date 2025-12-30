@@ -1,57 +1,49 @@
 # Gamer Gamma v1.0 Beta
 
-**Gamer Gamma** is a modern, high-performance monitor control utility designed for gamers and power users. It provides precise, hardware-level control over your display's color profile, allowing you to fine-tune your visual experience beyond what's possible with standard monitor OSDs or basic driver settings.
+![Gamer Gamma Screenshot](./gamergamma.png)
 
-## Inspiration
-Gamer Gamma is the spiritual successor to the legendary **Gamma Panel**. As Gamma Panel has become increasingly unstable or non-functional on modern Windows builds (Windows 10/11), Gamer Gamma was built from the ground up to restore that lost functionality with a modern interface and advanced "Stabilization" logic.
+## The Philosophy: Retro Simplicity
+Gamer Gamma is built for those who miss the "just works" efficiency of classic utilities like **Gamma Panel**. Unlike modern apps that are cluttered with 3D effects, heavy animations, and complex menus, Gamer Gamma goes back to basics: **Simple, high-response sliders that do exactly what they say.**
 
-## Key Features
+No 3D fluff. No account required. Just pure control over your pixels.
 
-### 1. Master Control & RGB Linking
-- **Master Gamma**: A single slider to control overall screen response.
-- **Contextual Linking**: Use the **Linked** mode to apply relative shifts to all channels while preserving your custom color offsets. Switch to **Red, Green, or Blue** modes for independent channel surgical precision.
+---
 
-### 2. Levels (Core Adjustments)
-- **Brightness**: Overall display gain.
-- **Contrast**: The ratio between light and dark (Default: **0.5**).
-- **Saturation**: Vividity of colors.
+## Tactical Gaming Advantage: "Daylight in the Dark"
+Built specifically for high-tension **FPS games (Valorant, CS, Tarkov, Dark Souls)**, Gamer Gamma gives you a legal tactical edge:
 
-### 3. Stabilizers (The Secret Sauce)
-- **Black Stabilizer**: Performs a 90-degree "floor cut." It lifts the darkest pixels into visibility without washing out mid-tones—perfect for seeing enemies in dark corners.
-- **White Stabilizer**: Limits the peak output (ceiling), preventing highlight clipping and eye strain in bright scenes.
-- **Shadow / Highlight**: Specific curves targets for the extremes of the spectrum.
-- **Mid-Tone**: Adjusts the "belly" of the gamma curve (Default: **0.5**).
+*   **Turn Night into Day**: Using the **Black Stabilizer**, you can lift the darkest shadows so enemies hiding in corners become visible as if it were daylight, all without washing out the rest of your screen or losing visibility in bright areas.
+*   **Prevent Flash Blindness**: Use the **White Stabilizer** to cap the peak brightness. Don't get blinded by in-game flashes or bright sun—keep your eyes focused on the target.
 
-### 4. Extras & Technicals
-- **Darkness**: Adjusts the absolute black point of the display.
-- **Hue**: Shifts the entire color spectrum.
-- **Dither**: Helps reduce color banding on lower-quality panels or extreme gamma settings.
+---
 
-### 5. Profile & Hotkey System
-- **Profile Management**: Save your perfect settings for Different games (e.g., "Dark Souls", "Valorant", "Movies").
-- **Flexible Hotkeys**: Bind any combination (e.g., **Ctrl+Alt+1**, **Alt+F1**) to instantly switch profiles mid-game.
-- **Export/Import**: Move your profiles between machines easily via JSON.
+## Setting Guide
 
-### 6. System Integration
-- **Minimize to Tray**: Keep your screen clean by hiding the app in the system tray.
-- **Lightbulb Control**: Control the app via the system tray icon (Right-click to Open/Exit).
+### 1. Levels (The Basics)
+*   **Brightness**: Overall display gain.
+*   **Contrast**: Control the depth between light and dark (Default: **0.5**).
+*   **Saturation**: Make those game colors pop or go moody grayscale.
 
-## How to Install & Run
+### 2. Stabilizers (The Pro Tools)
+*   **Black Stabilizer**: Performs a surgical "floor cut". Lifts dark pixels into visibility. **Essential for FPS gamers.**
+*   **White Stabilizer**: Sets a "ceiling" for brightness. Prevents highlight clipping and protects your eyes.
+*   **Mid-Tone**: Adjusts the "belly" of the curve. Use this to shift the weight of the image without affecting true blacks or whites.
 
-1. Download the latest release from the [GitHub Releases](https://github.com/YOUR_USERNAME/GamerGamma/releases) page.
-2. Run `GamerGamma.exe`. No installation required.
-3. (Optional) Right-click and "Run as Administrator" if your graphics driver restricts gamma access to standard users.
+### 3. Extras
+*   **Darkness**: Fine-tune the absolute black floor of your monitor.
+*   **Hue**: Shift the entire color spectrum for creative or corrective effects.
+*   **Dither**: Dramatically reduces color banding on lower-quality panels.
 
-## How to Build (Developers)
+---
 
-- **Requirements**: .NET 8.0 SDK, Windows 10/11.
-- **Build**:
-  ```bash
-  dotnet build GamerGamma.csproj
-  ```
+## System Integration
+*   **Flexible Hotkeys**: Bind any combination (e.g., **Ctrl+1**, **Alt+F1**) to switch profiles instantly mid-match.
+*   **Profiles**: Save custom setups for different games or lighting conditions.
+*   **Minimize to Tray**: Send the app to the system tray (Lightbulb icon) to keep your workspace clean.
 
-## Credits
-Built with ❤️ for the gaming community.
-Inspiration: **Gamma Panel** (Original by Tomaž Šolc).
-Logic & Implementation: **omaxtr**
-Development Assistant: **Antigravity AI**
+## Credits & Inspiration
+**Gamer Gamma** is the spiritual successor to **Gamma Panel** (Original by Tomaž Šolc). When the legend stopped working on modern Windows, Gamer Gamma was born to keep the legacy alive.
+
+Built with ❤️ for gamers.
+Implementation: **omaxtr**
+Logic Assistant: **Antigravity AI**
