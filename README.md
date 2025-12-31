@@ -1,4 +1,4 @@
-# Gamer Gamma v1.1 Beta
+# Gamer Gamma v1.2
 
 ![Gamer Gamma Screenshot](./gamergamma.png)
 
@@ -53,6 +53,7 @@ Built specifically for high-tension **FPS games (Valorant, CS, Tarkov, Dark Soul
 Built with ❤️ for gamers by gamer.
 Implementation: **omaxtr**
 Logic Assistant: **Antigravity AI**
+
 
 
 
