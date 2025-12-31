@@ -48,8 +48,9 @@ Built specifically for high-tension **FPS games (Valorant, CS, Tarkov, Dark Soul
 ---
 
 ## Credits & Inspiration
-**Gamer Gamma** is the spiritual successor to **Gamma Panel** (Original by Tomaž Šolc). When the legend stopped working on modern Windows, Gamer Gamma was born to keep the legacy alive.
+**Gamer Gamma** is the spiritual successor to **Gamma Panel**. When the legend stopped working on modern Windows, Gamer Gamma was born to keep the legacy alive.
 
 Built with ❤️ for gamers.
 Implementation: **omaxtr**
 Logic Assistant: **Antigravity AI**
+
