@@ -1,27 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <RootNamespace>GamerGamma</RootNamespace>
-    <AssemblyName>GamerGamma</AssemblyName>
+    <!-- Target NET4.8 for maximum compatibility and tiny size -->
+    <TargetFramework>net48</TargetFramework> 
+    
     <UseWindowsForms>true</UseWindowsForms>
-    <Platforms>x64</Platforms>
-    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <SelfContained>true</SelfContained>
-    <PublishSingleFile>true</PublishSingleFile>
-    <PublishReadyToRun>false</PublishReadyToRun>
+    <LangVersion>latest</LangVersion>
+    
+    <!-- Clean Build Settings -->
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
-    <Version>1.1.0-beta</Version>
+    <Version>1.2</Version>
     <Authors>omaxtr</Authors>
     <Description>Tactical Gamma Adjustment Utility for Gamers</Description>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Platform)'=='x64'">
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
+  <ItemGroup>
+    <!-- THIS IS THE MISSING PIECE -->
+    <Reference Include="System.Web.Extensions" />
+    
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="app.manifest" Condition="Exists('app.manifest')" />
   </ItemGroup>
+
 </Project>

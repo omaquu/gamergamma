@@ -93,9 +93,10 @@ namespace GamerGamma
                 g = l + (g - l) * _saturation;
                 b = l + (b - l) * _saturation;
 
-                rFull[i] = (ushort)(Math.Clamp(r, 0, 1) * 65535.0);
-                gFull[i] = (ushort)(Math.Clamp(g, 0, 1) * 65535.0);
-                bFull[i] = (ushort)(Math.Clamp(b, 0, 1) * 65535.0);
+                // FIXED: Changed Math.Clamp to Clamp
+                rFull[i] = (ushort)(Clamp(r, 0, 1) * 65535.0);
+                gFull[i] = (ushort)(Clamp(g, 0, 1) * 65535.0);
+                bFull[i] = (ushort)(Clamp(b, 0, 1) * 65535.0);
             }
             return (rFull, gFull, bFull);
         }
@@ -182,8 +183,8 @@ namespace GamerGamma
                     }
                 }
 
-                // Clamp before Gamma
-                val = Math.Clamp(val, 0.0, 1.0);
+                // FIXED: Changed Math.Clamp to Clamp
+                val = Clamp(val, 0.0, 1.0);
 
                 // 6. Gamma
                 double g = Math.Max(0.1, ch.Gamma);
@@ -223,9 +224,9 @@ namespace GamerGamma
                     }
                 }
 
-                val = Math.Clamp(val, 0.0, 1.0);
+                // FIXED: Changed Math.Clamp to Clamp
+                val = Clamp(val, 0.0, 1.0);
 
-                val = Math.Clamp(val, 0.0, 1.0);
                 curve[i] = (ushort)(val * 65535.0);
             }
             return curve;
@@ -259,5 +260,13 @@ namespace GamerGamma
             Api = s.Api;
             Update();
         }
+
+        private static double Clamp(double value, double min, double max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
+        }
+
     }
 }

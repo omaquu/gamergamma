@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Text.Json;
+using System.Web.Script.Serialization; // Native Windows JSON (No dependencies)
 using System.Windows.Forms;
 
 namespace GamerGamma
@@ -212,7 +212,15 @@ namespace GamerGamma
             root.SetColumnSpan(lblFooter, 4);
 
             this.FormClosing += (s, e) => { trayIcon.Visible = false; };
-            this.Resize += (s, e) => { if (this.WindowState == FormWindowState.Minimized && chkMinimizeToTray.Checked) { this.Hide(); trayIcon.Visible = true; } };
+            
+            // FIXED: PROPER TASKBAR HIDING LOGIC
+            this.Resize += (s, e) => { 
+                if (this.WindowState == FormWindowState.Minimized && chkMinimizeToTray.Checked) { 
+                    this.ShowInTaskbar = false; // Ensures it leaves the taskbar
+                    this.Hide(); 
+                    trayIcon.Visible = true; 
+                } 
+            };
 
             LoadMonitors();
             LoadProfiles();
@@ -242,12 +250,13 @@ namespace GamerGamma
             DrawPreview();
             _ignoreEvents = false;
 
-            // Apply start minimized behavior
+            // FIXED: PROPER START MINIMIZED LOGIC
             if (_appSettings.StartMinimized)
             {
                 this.WindowState = FormWindowState.Minimized;
                 if (_appSettings.MinimizeToTray)
                 {
+                    this.ShowInTaskbar = false; // Don't show in taskbar on start
                     this.Hide();
                     trayIcon.Visible = true;
                 }
@@ -278,11 +287,20 @@ namespace GamerGamma
             trayIcon = new NotifyIcon { Text = "Gamer Gamma", Visible = false };
             try { trayIcon.Icon = CreateLightbulbIcon(); } catch {}
             var menu = new ContextMenuStrip();
-            menu.Items.Add("Open", null, (s, e) => { this.Show(); this.WindowState = FormWindowState.Normal; });
+            
+            // FIXED: LOGIC TO RESTORE TO TASKBAR
+            Action openAction = () => { 
+                this.ShowInTaskbar = true; // Bring back to taskbar
+                this.Show(); 
+                this.WindowState = FormWindowState.Normal; 
+            };
+
+            menu.Items.Add("Open", null, (s, e) => openAction());
             menu.Items.Add("-");
             menu.Items.Add("Exit", null, (s, e) => { trayIcon.Visible = false; Application.Exit(); });
+            
             trayIcon.ContextMenuStrip = menu;
-            trayIcon.DoubleClick += (s, e) => { this.Show(); this.WindowState = FormWindowState.Normal; };
+            trayIcon.DoubleClick += (s, e) => openAction();
         }
 
         private Icon CreateLightbulbIcon()
@@ -318,7 +336,10 @@ namespace GamerGamma
             };
             cNud.ValueChanged += (s, e) => {
                 int ival = (int)(((double)cNud.Value - min) / (max - min) * 1000);
-                cTb.Value = Math.Clamp(ival, 0, 1000);
+                
+                // FIXED: Changed Math.Clamp to Clamp
+                cTb.Value = (int)Clamp(ival, 0, 1000);
+                
                 if (!_ignoreEvents) {
                     if (isMaster) {
                         double newVal = (double)cNud.Value;
@@ -457,7 +478,8 @@ namespace GamerGamma
         private void SafeSetNud(NumericUpDown nud, double val)
         {
             if (nud == null) return;
-            decimal dVal = (decimal)Math.Clamp(val, (double)nud.Minimum, (double)nud.Maximum);
+            // FIXED: Changed Math.Clamp to Clamp
+            decimal dVal = (decimal)Clamp(val, (double)nud.Minimum, (double)nud.Maximum);
             if (nud.Value != dVal) nud.Value = dVal;
         }
 
@@ -641,15 +663,18 @@ namespace GamerGamma
         
         private void LoadProfiles()
         {
+            // NEW: Native JSON Loading
+            var serializer = new JavaScriptSerializer();
+
             if (File.Exists(_settingsPath)) {
                 try {
                     string json = File.ReadAllText(_settingsPath);
                     if (json.TrimStart().StartsWith("[")) {
                         // Legacy format: List<ColorProfile>
-                        var legacy = JsonSerializer.Deserialize<List<ColorProfile>>(json);
+                        var legacy = serializer.Deserialize<List<ColorProfile>>(json);
                         _appSettings = new AppSettings { Profiles = legacy };
                     } else {
-                        _appSettings = JsonSerializer.Deserialize<AppSettings>(json);
+                        _appSettings = serializer.Deserialize<AppSettings>(json);
                     }
                 } catch { _appSettings = new AppSettings(); }
             } else {
@@ -657,7 +682,7 @@ namespace GamerGamma
                 string oldPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "profiles.json");
                 if (File.Exists(oldPath)) {
                     try {
-                        var legacy = JsonSerializer.Deserialize<List<ColorProfile>>(File.ReadAllText(oldPath));
+                        var legacy = serializer.Deserialize<List<ColorProfile>>(File.ReadAllText(oldPath));
                         _appSettings = new AppSettings { Profiles = legacy };
                     } catch { _appSettings = new AppSettings(); }
                 } else {
@@ -727,7 +752,9 @@ namespace GamerGamma
                 }
             }
             
-            File.WriteAllText(_settingsPath, JsonSerializer.Serialize(_appSettings, new JsonSerializerOptions { WriteIndented = true }));
+            // NEW: Native JSON Saving
+            var serializer = new JavaScriptSerializer();
+            File.WriteAllText(_settingsPath, serializer.Serialize(_appSettings));
         }
 
         private void ApplyWarmMode() {
@@ -766,7 +793,9 @@ namespace GamerGamma
             var sfd = new SaveFileDialog { Filter = "JSON files (*.json)|*.json", FileName = "GamerGamma_Settings.json" };
             if (sfd.ShowDialog() == DialogResult.OK)
             {
-                File.WriteAllText(sfd.FileName, JsonSerializer.Serialize(_appSettings, new JsonSerializerOptions { WriteIndented = true }));
+                // NEW: Native JSON Export
+                var serializer = new JavaScriptSerializer();
+                File.WriteAllText(sfd.FileName, serializer.Serialize(_appSettings));
                 MessageBox.Show("Settings Exported!");
             }
         }
@@ -778,12 +807,14 @@ namespace GamerGamma
             {
                 try
                 {
+                    // NEW: Native JSON Import
+                    var serializer = new JavaScriptSerializer();
                     string json = File.ReadAllText(ofd.FileName);
                     if (json.TrimStart().StartsWith("[")) {
-                        var legacy = JsonSerializer.Deserialize<List<ColorProfile>>(json);
+                        var legacy = serializer.Deserialize<List<ColorProfile>>(json);
                         _appSettings.Profiles.AddRange(legacy);
                     } else {
-                        var imported = JsonSerializer.Deserialize<AppSettings>(json);
+                        var imported = serializer.Deserialize<AppSettings>(json);
                         if (imported.Profiles != null) _appSettings.Profiles.AddRange(imported.Profiles);
                     }
                     SaveSettings();
@@ -836,6 +867,16 @@ namespace GamerGamma
 
             }
             previewBox.Invalidate();
+        }
+
+        // ============================================
+        // HELPER METHOD FOR MATH
+        // ============================================
+        private double Clamp(double value, double min, double max)
+        {
+            if (value < min) return min;
+            if (value > max) return max;
+            return value;
         }
     }
 
