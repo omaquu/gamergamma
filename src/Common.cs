@@ -69,6 +69,7 @@ namespace GamerGamma
         public bool StartMinimized { get; set; } = false;
         public string SelectedMonitorDeviceName { get; set; }
         public ExtendedColorSettings CurrentSettings { get; set; } = new ExtendedColorSettings();
+        public Dictionary<string, ExtendedColorSettings> MonitorSettings { get; set; } = new Dictionary<string, ExtendedColorSettings>();
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]

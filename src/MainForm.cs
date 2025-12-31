@@ -615,7 +615,27 @@ namespace GamerGamma
             }
             if(cbMonitors.Items.Count > 0) cbMonitors.SelectedIndex = 0;
             cbMonitors.SelectedIndexChanged += (s,e) => {
-                 if(cbMonitors.SelectedItem is MonitorInfo mi) { _gamma.TargetDisplay=mi.DeviceName; lblMonitorInfo.Text=$"{mi.Width}x{mi.Height}@{mi.Frequency}Hz"; }
+                 if(cbMonitors.SelectedItem is MonitorInfo mi) { 
+                     // Save current monitor's settings before switching
+                     if (!string.IsNullOrEmpty(_gamma.TargetDisplay) && !_ignoreEvents) {
+                         _appSettings.MonitorSettings[_gamma.TargetDisplay] = _gamma.GetCurrentSettings();
+                     }
+                     
+                     _gamma.TargetDisplay = mi.DeviceName; 
+                     lblMonitorInfo.Text = $"{mi.Width}x{mi.Height}@{mi.Frequency}Hz";
+                     
+                     // Load this monitor's saved settings or use defaults
+                     if (_appSettings.MonitorSettings.ContainsKey(mi.DeviceName)) {
+                         _gamma.ApplySettings(_appSettings.MonitorSettings[mi.DeviceName]);
+                     } else {
+                         // First time selecting this monitor, use default settings
+                         _gamma.Reset();
+                     }
+                     
+                     UpdateUIValues();
+                     DrawPreview();
+                     SaveSettings();
+                 }
             };
         }
         
@@ -692,6 +712,11 @@ namespace GamerGamma
             _appSettings.MinimizeToTray = chkMinimizeToTray.Checked;
             _appSettings.StartMinimized = chkStartMinimized.Checked;
             _appSettings.SelectedProfileIndex = cbProfiles.SelectedIndex;
+            
+            // Save current monitor's settings
+            if (!string.IsNullOrEmpty(_gamma.TargetDisplay)) {
+                _appSettings.MonitorSettings[_gamma.TargetDisplay] = _gamma.GetCurrentSettings();
+            }
             
             if (cbMonitors.SelectedIndex >= 0) {
                 var txt = cbMonitors.Items[cbMonitors.SelectedIndex].ToString();
