@@ -1,3 +1,6 @@
+/* =========================================
+   1. RESET & VARIABLES
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -19,6 +22,10 @@
     --text-primary: #ffffff;
     --text-secondary: #a0a0b0;
     --text-muted: #6b6b80;
+    
+    /* Ko-fi Official Colors */
+    --kofi-blue: #29abe0;
+    --kofi-blue-hover: #1a96c9;
 }
 
 body {
@@ -29,55 +36,9 @@ body {
     overflow-x: hidden;
 }
 
-/* Support Section Styling */
-.support-block {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    align-items: flex-start;
-}
-
-.support-text {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-}
-
-.btn-coffee {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background-color: #29abe0; /* Official Ko-fi Color */
-    color: white;
-    padding: 8px 16px;
-    border-radius: 99px; /* Pill shape */
-    font-weight: 600;
-    font-size: 0.9rem;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.btn-coffee:hover {
-    background-color: #1a96c9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(41, 171, 224, 0.3);
-}
-
-.btn-coffee svg {
-    width: 18px;
-    height: 18px;
-}
-
-/* Responsive adjustment */
-@media (max-width: 768px) {
-    .support-block {
-        align-items: center;
-    }
-}
-
-/* Animated starfield background */
+/* =========================================
+   2. ANIMATED BACKGROUNDS
+   ========================================= */
 .stars,
 .stars2 {
     position: fixed;
@@ -106,7 +67,6 @@ body {
     to { transform: translateY(-1000px); }
 }
 
-/* Gradient background waves */
 .gradient-bg {
     position: fixed;
     top: 0;
@@ -129,7 +89,9 @@ body {
     z-index: 10;
 }
 
-/* Header */
+/* =========================================
+   3. HEADER
+   ========================================= */
 .header {
     padding: 1.5rem 0;
     position: sticky;
@@ -193,7 +155,9 @@ body {
     box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
 }
 
-/* Hero Section */
+/* =========================================
+   4. HERO SECTION
+   ========================================= */
 .hero {
     padding: 6rem 0;
     position: relative;
@@ -351,10 +315,19 @@ body {
     transform: translateY(-2px);
 }
 
+/* --- HERO EXTRA LINKS (Github + Coffee) --- */
+.hero-extra-links {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
 .cta-note {
     font-size: 0.95rem;
     color: var(--text-muted);
-    margin-top: 1rem;
+    margin: 0; /* Removed top margin to fit in flex container */
 }
 
 .download-link {
@@ -369,7 +342,37 @@ body {
     border-bottom-color: var(--purple-500);
 }
 
-/* Features Section */
+/* Subtle Coffee Button for Hero Section */
+.btn-coffee-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(41, 171, 224, 0.1); /* Transparent Blue */
+    color: var(--kofi-blue);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(41, 171, 224, 0.3);
+}
+
+.btn-coffee-hero:hover {
+    background-color: var(--kofi-blue); /* Solid Blue on Hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(41, 171, 224, 0.3);
+}
+
+.btn-coffee-hero svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* =========================================
+   5. FEATURES SECTION
+   ========================================= */
 .features {
     padding: 6rem 0;
     position: relative;
@@ -425,7 +428,9 @@ body {
     line-height: 1.7;
 }
 
-/* Philosophy Section */
+/* =========================================
+   6. PHILOSOPHY SECTION
+   ========================================= */
 .philosophy {
     padding: 6rem 0;
     position: relative;
@@ -549,7 +554,9 @@ body {
     font-style: italic;
 }
 
-/* Tactical Section */
+/* =========================================
+   7. TACTICAL SECTION
+   ========================================= */
 .tactical {
     padding: 6rem 0;
     position: relative;
@@ -643,7 +650,9 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* CTA Section */
+/* =========================================
+   8. CTA & FOOTER
+   ========================================= */
 .cta {
     padding: 8rem 0;
     position: relative;
@@ -669,7 +678,7 @@ body {
     justify-content: center;
 }
 
-/* Footer */
+/* Footer Container */
 .footer {
     padding: 4rem 0 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -715,7 +724,51 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* --- FOOTER SUPPORT BLOCK (Optional/Extra) --- */
+.support-block {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.support-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Solid Coffee Button for Footer */
+.btn-coffee {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--kofi-blue);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-coffee:hover {
+    background-color: var(--kofi-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(41, 171, 224, 0.3);
+}
+
+.btn-coffee svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* =========================================
+   9. RESPONSIVE DESIGN
+   ========================================= */
 @media (max-width: 1024px) {
     .hero-content,
     .philosophy-grid,
@@ -761,6 +814,12 @@ body {
     .hero-buttons {
         flex-direction: column;
     }
+    
+    /* Center align hero support links on mobile */
+    .hero-extra-links {
+        align-items: center;
+        text-align: center;
+    }
 
     .features-grid {
         grid-template-columns: 1fr;
@@ -780,5 +839,9 @@ body {
         gap: 2rem;
         text-align: center;
     }
+    
+    /* Center align footer support block on mobile */
+    .support-block {
+        align-items: center;
+    }
 }
-
