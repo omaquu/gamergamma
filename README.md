@@ -1,6 +1,6 @@
 # Gamer Gamma v1.1 Beta
 
-[![Gamer Gamma Screenshot](./gamergamma.png)](https://github.com/omaxtr/GamerGamma/blob/main/gamergamma.png)
+[![Gamer Gamma Screenshot](./gamergamma.png)]
 
 ## The Philosophy: Retro Simplicity
 Gamer Gamma is built for those who miss the "just works" efficiency of classic utilities like **Gamma Panel**. Unlike modern apps that are cluttered with 3D effects, heavy animations, and complex menus, Gamer Gamma goes back to basics: **Simple, high-response sliders that do exactly what they say.**
@@ -53,6 +53,7 @@ Built specifically for high-tension **FPS games (Valorant, CS, Tarkov, Dark Soul
 Built with ❤️ for gamers by gamer.
 Implementation: **omaxtr**
 Logic Assistant: **Antigravity AI**
+
 
 
 
