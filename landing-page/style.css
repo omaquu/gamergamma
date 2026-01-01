@@ -943,6 +943,37 @@ body {
     filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.8));
 }
 
+/* 1. Define the Breathing Animation */
+@keyframes logo-breath {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.4));
+        transform: scale(1);
+    }
+    50% {
+        /* Glow gets stronger and bulb grows very slightly */
+        filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.8)) 
+                drop-shadow(0 0 25px rgba(245, 158, 11, 0.3));
+        transform: scale(1.05);
+    }
+    100% {
+        filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.4));
+        transform: scale(1);
+    }
+}
+
+/* 2. Apply to the Header Logo SVG */
+.header .logo svg {
+    animation: logo-breath 4s ease-in-out infinite;
+    transform-origin: center; /* Ensures it scales from the middle */
+    will-change: filter, transform; /* Optimizes performance */
+}
+
+/* 3. (Optional) Faster/Stronger breath on Hover */
+.header .logo:hover svg {
+    animation-duration: 1.5s; /* Speeds up when you look at it */
+    filter: drop-shadow(0 0 20px rgba(236, 72, 153, 1));
+}  
+   
    /* 1. Layout for the Primary Row (Download + Badge) */
 .hero-buttons-row {
     display: flex;
@@ -1050,6 +1081,7 @@ body {
         text-align: center;
     }
 }
+
 
 
 
