@@ -909,112 +909,77 @@ body {
         align-items: center;
     }
 
-   /* 1. Layout for the Primary Row (Download + Badge) */
+/* 1. Layout: Forces Download Button and Badge side-by-side */
 .hero-buttons-row {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem; /* Space between Download button and Badge */
     margin-top: 2rem;
     margin-bottom: 1.5rem;
-    flex-wrap: wrap; /* Wraps buttons on mobile */
+    flex-wrap: wrap; 
 }
 
-/* 2. The VirusTotal "Pill" Style */
-.vt-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 6px 20px 6px 14px; /* Adjusted padding */
-    border-radius: 12px; /* Slightly squarer corners look better for badges */
-    text-decoration: none;
-    transition: all 0.2s ease;
-    height: 54px; /* Matches the standard height of your Download button */
-}
-
-.vt-pill:hover {
-    background: rgba(34, 197, 94, 0.1);
-    border-color: rgba(34, 197, 94, 0.4);
-    transform: translateY(-2px);
-}
-
-/* New: Wrapper for the stacked text */
-.vt-content {
+/* 2. Badge Container (The link itself) */
+.vt-badge-container {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1; /* Keeps the lines close together */
+    flex-direction: column; /* Stacks Top row on Bottom row */
+    justify-content: center;
+    align-items: flex-start; /* Aligns text to the left */
+    text-decoration: none !important; /* Forces no underline */
+    border: 1px solid transparent; /* Invisible border to prevent layout shift on hover */
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
 
-/* "VirusTotal" - Small and on top */
-.vt-label {
-    font-size: 0.7rem;
+/* Hover Effect for the whole badge */
+.vt-badge-container:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 3. Top Row: Icon + "Clean" */
+.vt-top {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px; /* Small space between Clean and VirusTotal */
+}
+
+/* The Green "Clean" Text */
+.vt-status-text {
+    color: #22c55e !important; /* Force GREEN (Overrides visited link purple) */
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1;
     text-transform: uppercase;
-    color: #888; /* Dimmed color */
-    font-weight: 600;
     letter-spacing: 0.5px;
 }
 
-/* "Clean" - Bigger and below */
-.vt-value {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 1rem;
+/* 4. Bottom Row: "VirusTotal" Text */
+.vt-bottom {
+    padding-left: 2px; /* Aligns visually with the round icon above */
 }
 
-/* Hover effect: Make the label brighter when hovering */
-.vt-pill:hover .vt-label {
-    color: #22c55e;
-}
-
-/* 3. Layout for Secondary Column (GitHub + Coffee) */
-.hero-extra-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.cta-note {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
+.vt-source-text {
+    color: #6b6b80 !important; /* Force GRAY */
+    font-size: 0.7rem;
     font-style: italic;
+    font-weight: 500;
 }
 
-.github-link {
-    color: var(--purple-500);
-    text-decoration: none;
-    font-style: italic;
-    font-size: 0.85rem;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
-}
-
-.github-link:hover {
-    border-bottom-color: var(--purple-500);
-}
-
-/* Mobile Adjustments */
+/* Mobile Fix: Stack them if screen is too small */
 @media (max-width: 768px) {
     .hero-buttons-row {
         flex-direction: column;
-        width: 100%;
-        gap: 1rem;
+        align-items: stretch; /* Full width */
     }
     
-    .btn-large, .vt-pill {
-        width: 100%; /* Full width buttons on phone */
-        justify-content: center;
-    }
-
-    .hero-extra-links {
-        align-items: center;
-        text-align: center;
+    .vt-badge-container {
+        align-items: center; /* Center align the badge on mobile */
+        border: 1px solid rgba(255, 255, 255, 0.05); /* Add border on mobile so it looks like a button */
     }
 }
-
 
 
