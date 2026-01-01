@@ -77,31 +77,28 @@
                 
                 <!-- 1. Primary Row: Download + VirusTotal Badge -->
     
+    
 <div class="hero-buttons-row">
     <!-- 1. Main Download Button -->
     <a href="https://github.com/omaxtr/GamerGamma/releases/download/1.2/GamerGamma.exe" class="btn-large btn-download btn-glow">
         Download Gamer Gamma for FREE
     </a>
 
-    <!-- 2. The VirusTotal Badge -->
-                        <a href="https://www.virustotal.com/gui/url/b86f1a6f35526105ca57e04c2ab6798f7f7eb9bb5fa9ad3628bfc27847002709" target="_blank" rel="noopener noreferrer" class="vt-badge-container">
+    <!-- 2. VirusTotal Green Button -->
+    <a href="https://www.virustotal.com/gui/url/b86f1a6f35526105ca57e04c2ab6798f7f7eb9bb5fa9ad3628bfc27847002709" target="_blank" rel="noopener noreferrer" class="btn-vt">
+        <!-- Icon -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
         
-                            <!-- Top Row: Icon + "Clean" -->
-                            <div class="vt-top">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="12" cy="12" r="10" stroke="#22c55e" stroke-width="2"/>
-                                    <path d="M8 12L11 15L16 9" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                                <span class="vt-status-text">Clean</span>
-                            </div>
-
-                            <!-- Bottom Row: "VirusTotal" -->
-                            <div class="vt-bottom">
-                                <span class="vt-source-text">VirusTotal</span>
-                            </div>
-                        </a>
-                    </div>
-                
+        <!-- Text Stack -->
+        <div class="vt-text-stack">
+            <span class="vt-clean">Clean</span>
+            <span class="vt-source">VirusTotal</span>
+        </div>
+    </a>
+</div>                
                 <!-- 2. Secondary Column: GitHub + Coffee -->
                 <div class="hero-extra-links">
                     <p class="cta-note">
@@ -393,6 +390,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
