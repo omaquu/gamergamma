@@ -17,18 +17,20 @@
     
     <header class="header">
         <div class="container">
-            <div class="logo">
+            <div class="logo">   
     
 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Bulb Shape with Brand Gradient -->
+    <!-- Bulb Shape -->
     <path d="M9 21h6M9 18h6M10 21v1a1 1 0 001 1h2a1 1 0 001-1v-1M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" 
-          fill="url(#bulbGradient)"/>
-    <!-- Filament (The inner light part) -->
-    <path d="M12 6v3M9 9h6" stroke="white" stroke-width="1.5" stroke-linecap="round" opacity="0.8"/>
+          fill="url(#multiColorBulb)"/>
+    <!-- Filament -->
+    <path d="M12 6v3M9 9h6" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
     <defs>
-        <linearGradient id="bulbGradient" x1="0" y1="0" x2="24" y2="24">
-            <stop offset="0%" stop-color="#6366f1"/>
-            <stop offset="100%" stop-color="#a855f7"/>
+        <!-- Your specific 3-color linear gradient -->
+        <linearGradient id="multiColorBulb" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#a855f7"/> <!-- Purple -->
+            <stop offset="50%" stop-color="#ec4899"/> <!-- Pink -->
+            <stop offset="100%" stop-color="#f59e0b"/> <!-- Orange/Gold -->
         </linearGradient>
     </defs>
 </svg>
@@ -342,18 +344,19 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="logo">
-    
+        
 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M9 21h6M9 18h6M10 21v1a1 1 0 001 1h2a1 1 0 001-1v-1M12 2C8.13 2 5 5.13 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.87-3.13-7-7-7z" 
-          fill="url(#footerBulbGradient)"/>
+          fill="url(#footerMultiColorBulb)"/>
     <defs>
-        <linearGradient id="footerBulbGradient" x1="0" y1="0" x2="24" y2="24">
-            <stop offset="0%" stop-color="#6366f1"/>
-            <stop offset="100%" stop-color="#a855f7"/>
+        <linearGradient id="footerMultiColorBulb" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#a855f7"/>
+            <stop offset="50%" stop-color="#ec4899"/>
+            <stop offset="100%" stop-color="#f59e0b"/>
         </linearGradient>
     </defs>
 </svg>
-
+                        
                           <span class="logo-text">Gamer Gamma</span>
                     </div>
                     <p class="footer-tagline">Pure control over your pixels.</p>
@@ -388,6 +391,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
