@@ -934,6 +934,15 @@ body {
         align-items: center;
     }
 
+   .logo svg {
+    filter: drop-shadow(0 0 5px rgba(168, 85, 247, 0.4));
+    transition: filter 0.3s ease;
+}
+
+.logo:hover svg {
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.8));
+}
+
    /* 1. Layout for the Primary Row (Download + Badge) */
 .hero-buttons-row {
     display: flex;
@@ -1041,6 +1050,7 @@ body {
         text-align: center;
     }
 }
+
 
 
 
