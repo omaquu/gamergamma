@@ -909,77 +909,84 @@ body {
         align-items: center;
     }
 
-/* 1. Layout: Forces Download Button and Badge side-by-side */
+/* 1. Layout Container - Forces side-by-side */
 .hero-buttons-row {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    gap: 1.5rem; /* Space between Download button and Badge */
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap; 
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
 }
 
-/* 2. Badge Container (The link itself) */
-.vt-badge-container {
-    display: flex;
-    flex-direction: column; /* Stacks Top row on Bottom row */
-    justify-content: center;
-    align-items: flex-start; /* Aligns text to the left */
-    text-decoration: none !important; /* Forces no underline */
-    border: 1px solid transparent; /* Invisible border to prevent layout shift on hover */
-    padding: 6px 12px;
-    border-radius: 8px;
+/* 2. The VirusTotal Button Style */
+.btn-vt {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    
+    /* Button Shape & Color */
+    background: rgba(34, 197, 94, 0.1); /* Very subtle green background */
+    border: 1px solid #22c55e; /* Bright Green Border */
+    color: #22c55e !important; /* Force Text Green */
+    
+    padding: 6px 24px 6px 16px; /* Padding for button feel */
+    border-radius: 12px;
+    height: 54px; /* Matches Download Button Height */
+    text-decoration: none !important;
     transition: all 0.2s ease;
+    cursor: pointer;
 }
 
-/* Hover Effect for the whole badge */
-.vt-badge-container:hover {
-    background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(-1px);
+/* Hover Effect: Fills with green */
+.btn-vt:hover {
+    background: #22c55e;
+    color: #000000 !important; /* Text turns black for contrast */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
 }
 
-/* 3. Top Row: Icon + "Clean" */
-.vt-top {
+/* Make the icon match the text color */
+.btn-vt svg {
+    stroke: currentColor;
+    width: 20px;
+    height: 20px;
+}
+
+/* 3. Text Typography */
+.vt-text-stack {
     display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 2px; /* Small space between Clean and VirusTotal */
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
 }
 
-/* The Green "Clean" Text */
-.vt-status-text {
-    color: #22c55e !important; /* Force GREEN (Overrides visited link purple) */
-    font-weight: 700;
+/* The "Clean" Text - The one you liked */
+.vt-clean {
+    font-weight: 800;
     font-size: 1.1rem;
-    line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* 4. Bottom Row: "VirusTotal" Text */
-.vt-bottom {
-    padding-left: 2px; /* Aligns visually with the round icon above */
+/* The "VirusTotal" Text */
+.vt-source {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 2px;
 }
 
-.vt-source-text {
-    color: #6b6b80 !important; /* Force GRAY */
-    font-size: 0.7rem;
-    font-style: italic;
-    font-weight: 500;
-}
-
-/* Mobile Fix: Stack them if screen is too small */
+/* Mobile Fix */
 @media (max-width: 768px) {
     .hero-buttons-row {
         flex-direction: column;
-        align-items: stretch; /* Full width */
+        align-items: stretch;
     }
     
-    .vt-badge-container {
-        align-items: center; /* Center align the badge on mobile */
-        border: 1px solid rgba(255, 255, 255, 0.05); /* Add border on mobile so it looks like a button */
+    .btn-vt {
+        justify-content: center;
     }
 }
-
-
