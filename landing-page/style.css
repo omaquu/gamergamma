@@ -989,7 +989,7 @@ body {
     font-style: italic;
     font-size: 0.75rem;
     cursor: pointer;
-    color: #ffffff; /* Manually set it to white after unsetting */
+    color: var(--text-muted);
 }
 
 /* Mobile Adjustments */
@@ -1010,6 +1010,7 @@ body {
         text-align: center;
     }
 }
+
 
 
 
