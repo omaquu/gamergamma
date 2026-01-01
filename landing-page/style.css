@@ -845,3 +845,74 @@ body {
         align-items: center;
     }
 }
+/* 1. Layout Container */
+.hero-buttons-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* 2. The VirusTotal Button Style */
+.btn-vt {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Space between checkmark and text */
+    
+    /* Button Shape & Colors */
+    background: rgba(34, 197, 94, 0.08); /* Very subtle green tint background */
+    border: 1px solid rgba(34, 197, 94, 0.3); /* Thin green border */
+    padding: 6px 20px 6px 14px; 
+    border-radius: 12px;
+    height: 54px; /* Matches Download Button Height */
+    text-decoration: none !important; /* No underline ever */
+    transition: all 0.2s ease;
+}
+
+/* Hover Effect */
+.btn-vt:hover {
+    background: rgba(34, 197, 94, 0.15); /* Slightly brighter background */
+    border-color: #22c55e; /* Solid green border */
+    transform: translateY(-2px);
+}
+
+/* 3. Text Styling */
+.vt-text-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+}
+
+/* "Clean" Text - FORCED GREEN */
+.vt-clean {
+    color: #22c55e !important; /* This !important stops it from turning purple */
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* "VirusTotal" Text - Gray/Green mix */
+.vt-source {
+    color: #8fa; /* Light whitish-green */
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin-top: 3px;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .hero-buttons-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-vt {
+        justify-content: center;
+    }
+}
