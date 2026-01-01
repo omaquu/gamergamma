@@ -951,7 +951,7 @@ body {
 .vt-label {
     font-size: 0.7rem;
     text-transform: uppercase;
-    color: #888; /* Dimmed color */
+    color: #ffffff; /* Dimmed color */
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -985,7 +985,7 @@ body {
 }
 
 .github-link {
-    color: var(--white-500);
+    color: var(--text-primary);
     text-decoration: none;
     font-style: italic;
     font-size: 0.75rem;
@@ -994,7 +994,7 @@ body {
 }
 
 .github-link:hover {
-    border-bottom-color: var(--white-500);
+    border-bottom-color: var(--text-primary);
 }
 
 /* Mobile Adjustments */
@@ -1015,6 +1015,7 @@ body {
         text-align: center;
     }
 }
+
 
 
 
