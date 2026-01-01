@@ -5,37 +5,42 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Kill blur globally as it causes brightness flickering in many browsers */
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
 }
 
 :root {
-    --bg-dark: #050508;
-    --bg-card: #0d0d12;
+    --bg-dark: #0a0a0f;
+    --bg-darker: #050509;
     --purple-500: #a855f7;
     --purple-600: #9333ea;
+    --purple-700: #7e22ce;
+    --magenta-500: #d946ef;
+    --magenta-600: #c026d3;
+    --pink-500: #ec4899;
     --indigo-500: #6366f1;
     --gold-500: #d4af37;
     --gold-600: #b8941f;
     --text-primary: #ffffff;
     --text-secondary: #a0a0b0;
     --text-muted: #6b6b80;
+    
+    /* Ko-fi Official Colors */
     --kofi-blue: #29abe0;
+    --kofi-blue-hover: #1a96c9;
 }
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg-dark) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg-dark);
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
 /* =========================================
-   2. BACKGROUNDS (STATIC & SOLID)
+   2. ANIMATED BACKGROUNDS
    ========================================= */
-.stars, .stars2 {
+.stars,
+.stars2 {
     position: fixed;
     top: 0;
     left: 0;
@@ -43,12 +48,18 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.1; /* Very dim stars to prevent optical brightening */
 }
 
 .stars {
-    background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjgwMCIgY3k9IjQwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==') repeat;
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjgiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjMwMCIgY3k9IjIwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjYwMCIgY3k9IjEwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjgwMCIgY3k9IjQwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjYwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjUwMCIgY3k9IjUwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjkwMCIgY3k9IjcwMCIgcj0iMSIgZmlsbD0idXJsKCNnKSIvPjwvc3ZnPg==') repeat;
+    opacity: 0.3;
     animation: starsMove 120s linear infinite;
+}
+
+.stars2 {
+    background: transparent url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwMCIgaGVpZ2h0PSIxMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxyYWRpYWxHcmFkaWVudCBpZD0iZyI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZiIgc3RvcC1vcGFjaXR5PSIwLjYiLz48c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjwvcmFkaWFsR3JhZGllbnQ+PC9kZWZzPjxjaXJjbGUgY3g9IjQwMCIgY3k9IjMwMCIgcj0iMS41IiBmaWxsPSJ1cmwoI2cpIi8+PGNpcmNsZSBjeD0iNzAwIiBjeT0iNjAwIiByPSIxLjUiIGZpbGw9InVybCgjZykiLz48Y2lyY2xlIGN4PSIxMDAiIGN5PSI4MDAiIHI9IjEuNSIgZmlsbD0idXJsKCNnKSIvPjxjaXJjbGUgY3g9IjUwMCIgY3k9IjkwMCIgcj0iMS41IiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+') repeat;
+    opacity: 0.2;
+    animation: starsMove 180s linear infinite reverse;
 }
 
 @keyframes starsMove {
@@ -56,30 +67,18 @@ body {
     to { transform: translateY(-1000px); }
 }
 
-/* Changed to absolute so the glow scrolls AWAY and doesn't follow your eyes */
 .gradient-bg {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 1500px;
+    height: 100%;
     pointer-events: none;
     z-index: 1;
     background: 
-        radial-gradient(ellipse 80% 50% at 20% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse 70% 60% at 80% 30%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
-}
-
-/* =========================================
-   3. HEADER (SOLID NO GLOW)
-   ========================================= */
-.header {
-    padding: 1.5rem 0;
-    position: sticky;
-    top: 0;
-    background: #0a0a0f !important; /* Pure solid */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    z-index: 100;
+        radial-gradient(ellipse 80% 50% at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse 70% 60% at 80% 70%, rgba(217, 70, 239, 0.12) 0%, transparent 50%),
+        radial-gradient(ellipse 90% 40% at 50% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
 }
 
 .container {
@@ -90,43 +89,186 @@ body {
     z-index: 10;
 }
 
-.logo-text {
+/* =========================================
+   3. HEADER
+   ========================================= */
+.header {
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
     font-weight: 700;
+}
+
+.logo-text {
     background: linear-gradient(135deg, #a855f7, #ec4899);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-.nav { display: flex; gap: 2rem; align-items: center; }
-.nav-link { color: var(--text-secondary); text-decoration: none; font-weight: 500; }
-.nav-link:hover { color: #fff; }
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
 
 .btn-primary-small {
-    background: linear-gradient(135deg, var(--purple-600), #c026d3);
-    color: #fff;
+    background: linear-gradient(135deg, var(--purple-600), var(--magenta-600));
+    color: white;
     padding: 0.5rem 1.25rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary-small:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(168, 85, 247, 0.4);
 }
 
 /* =========================================
    4. HERO SECTION
    ========================================= */
-.hero { padding: 6rem 0; position: relative; }
-.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-.hero-image { width: 100%; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+.hero {
+    padding: 6rem 0;
+    position: relative;
+    z-index: 10;
+}
 
-.hero-title { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 0.5rem; }
-.hero-subtitle { font-size: 1.5rem; color: var(--text-secondary); margin-bottom: 2rem; }
-.hero-description { color: var(--text-secondary); margin-bottom: 1rem; }
-
-.hero-buttons-row {
-    display: flex !important;
-    flex-direction: row !important;
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     align-items: center;
-    gap: 15px;
-    margin-top: 30px;
+}
+
+.hero-image-container {
+    position: relative;
+    perspective: 1000px;
+}
+
+.parallax-scene {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.parallax-layer {
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 
+        0 20px 60px rgba(168, 85, 247, 0.3),
+        0 0 100px rgba(217, 70, 239, 0.2);
+    transform: rotateY(-5deg) rotateX(2deg);
+    transition: transform 0.3s ease;
+}
+
+.hero-text {
+    padding: 2rem 0;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(168, 85, 247, 0.15);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: var(--purple-500);
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.5rem;
+}
+
+.badge-accent {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: var(--gold-500);
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.hero-description-bold {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 1.5rem 0;
+    line-height: 1.8;
+}
+
+.hero-description-emphasis {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin: 1.5rem 0 2rem 0;
+    line-height: 1.8;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #a855f7, #ec4899, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
 }
 
 .btn-large {
@@ -134,85 +276,424 @@ body {
     border-radius: 12px;
     text-decoration: none;
     font-weight: 700;
+    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.3s ease;
 }
 
 .btn-download {
     background: linear-gradient(135deg, var(--gold-500), var(--gold-600));
-    color: #000;
+    color: var(--bg-dark);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
 }
 
-/* VIRUSTOTAL BUTTON - LOCKED COLORS */
-.btn-vt, .btn-vt:link, .btn-vt:visited {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    background-color: rgba(34, 197, 94, 0.08) !important;
-    border: 1px solid rgba(34, 197, 94, 0.4) !important;
-    padding: 6px 20px 6px 14px !important;
-    border-radius: 12px !important;
-    height: 54px !important;
-    text-decoration: none !important;
-    color: #22c55e !important;
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(212, 175, 55, 0.6);
 }
 
-.btn-vt:hover {
-    background-color: #22c55e !important;
-    color: #000 !important;
+.btn-glow {
+    animation: pulse 3s ease-in-out infinite;
 }
 
-.btn-vt svg { stroke: #22c55e !important; fill: none !important; width: 24px; height: 24px; }
-.btn-vt:hover svg { stroke: #000 !important; }
+/* VirusTotal Badge Styling */
+.vt-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px 8px 12px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    height: 54px; /* Matches the height of the Download button roughly */
+}
 
-.vt-text-stack { display: flex; flex-direction: column; line-height: 1; }
-.vt-clean { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; }
-.vt-source { font-size: 0.65rem; font-weight: 600; opacity: 0.8; margin-top: 3px; }
+.vt-badge:hover {
+    background: rgba(34, 197, 94, 0.1); /* Subtle green tint on hover */
+    border-color: rgba(34, 197, 94, 0.4);
+    transform: translateY(-2px);
+}
 
-/* GITHUB LINK */
-.hero-extra-links { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-.github-link, .github-link:visited {
-    color: var(--purple-500) !important;
-    text-decoration: none !important;
+.vt-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid #22c55e; /* Green Circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22c55e; /* Green Checkmark */
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
+}
+
+.vt-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.vt-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
     font-weight: 600;
-    font-style: italic;
-    font-size: 0.85rem;
 }
-.github-link:hover { color: #d8b4fe !important; }
+
+.vt-status {
+    font-size: 1rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* Mobile Alignment Fix */
+@media (max-width: 768px) {
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch; /* Makes buttons full width on mobile */
+    }
+    
+    .vt-badge {
+        justify-content: center; /* Centers the badge content on mobile */
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4); }
+    50% { box-shadow: 0 8px 40px rgba(212, 175, 55, 0.6); }
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* --- HERO EXTRA LINKS (Github + Coffee) --- */
+.hero-extra-links {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.cta-note {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin: 0; /* Removed top margin to fit in flex container */
+}
+
+.download-link {
+    color: var(--purple-500);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.download-link:hover {
+    border-bottom-color: var(--purple-500);
+}
+
+/* Subtle Coffee Button for Hero Section */
+.btn-coffee-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(41, 171, 224, 0.1); /* Transparent Blue */
+    color: var(--kofi-blue);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(41, 171, 224, 0.3);
+}
+
+.btn-coffee-hero:hover {
+    background-color: var(--kofi-blue); /* Solid Blue on Hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(41, 171, 224, 0.3);
+}
+
+.btn-coffee-hero svg {
+    width: 16px;
+    height: 16px;
+}
 
 /* =========================================
-   5. FEATURES (SOLID CARDS)
+   5. FEATURES SECTION
    ========================================= */
-.features { padding: 6rem 0; background-color: var(--bg-dark); }
-.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.features {
+    padding: 6rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
 
 .feature-card {
-    background-color: #0d0d15 !important; /* Solid color stops brightening */
-    border: 1px solid #1a1a25 !important;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     padding: 2rem;
-    opacity: 1 !important; /* Kill JS fade-in flickers */
-    transform: none !important;
+    transition: all 0.3s ease;
 }
 
-.feature-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 0.75rem; color: #fff; }
-.feature-description { color: var(--text-secondary); }
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(168, 85, 247, 0.3);
+    transform: translateY(-4px);
+}
+
+.feature-icon {
+    margin-bottom: 1.5rem;
+}
+
+.feature-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+}
+
+.feature-description {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
 
 /* =========================================
-   6. TACTICAL SECTION (SOLID FIX)
+   6. PHILOSOPHY SECTION
    ========================================= */
-.tactical { padding: 6rem 0; background-color: var(--bg-dark); }
-.comparison-slider {
-    background: #020205 !important;
-    border: 1px solid #1a1a25;
-    height: 300px;
-    border-radius: 12px;
+.philosophy {
+    padding: 6rem 0;
     position: relative;
+    z-index: 10;
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.philosophy-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+}
+
+.philosophy-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.philosophy-highlights {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.05rem;
+}
+
+.highlight-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.highlight-icon.no {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+}
+
+.highlight-icon.yes {
+    background: rgba(34, 197, 94, 0.15);
+    color: #22c55e;
+}
+
+.code-window {
+    background: rgba(15, 15, 25, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.code-header {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.code-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.code-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.code-dots span:nth-child(1) { background: #ef4444; }
+.code-dots span:nth-child(2) { background: #f59e0b; }
+.code-dots span:nth-child(3) { background: #22c55e; }
+
+.code-title {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.code-content {
+    padding: 2rem;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.95rem;
+    line-height: 2;
+}
+
+.code-content code {
+    display: block;
+}
+
+.code-key {
+    color: #a855f7;
+}
+
+.code-value {
+    color: #22c55e;
+}
+
+.code-comment {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* =========================================
+   7. TACTICAL SECTION
+   ========================================= */
+.tactical {
+    padding: 6rem 0;
+    position: relative;
+    z-index: 10;
+}
+
+.tactical-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.tactical-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--gold-500);
+}
+
+.tactical-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.comparison-slider {
+    position: relative;
+    height: 300px;
+    background: linear-gradient(90deg, #1a1a1f 0%, #2a2a35 50%, #3a3a45 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .comparison-gradient {
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(90deg, rgba(168, 85, 247, 0.05) 0%, rgba(212, 175, 55, 0.05) 100%) !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(168, 85, 247, 0.1) 0%, rgba(212, 175, 55, 0.2) 100%);
+}
+
+.comparison-label {
+    position: absolute;
+    font-size: 1.25rem;
+    font-weight: 700;
+    z-index: 2;
+}
+
+.comparison-before {
+    left: 2rem;
+    color: var(--text-muted);
+}
+
+.comparison-after {
+    right: 2rem;
+    color: var(--gold-500);
+}
+
+.tactical-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
 }
 
 .stat-value {
@@ -221,30 +702,318 @@ body {
     background: linear-gradient(135deg, #a855f7, #d946ef);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 /* =========================================
-   7. FOOTER & MISC
+   8. CTA & FOOTER
    ========================================= */
-.footer { padding: 4rem 0; border-top: 1px solid #1a1a25; background: #050508; }
-.footer-links a { color: var(--text-secondary); text-decoration: none; margin-right: 2rem; }
+.cta {
+    padding: 8rem 0;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
 
+.cta-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.cta-description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+/* Footer Container */
+.footer {
+    padding: 4rem 0 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 10;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.footer-tagline {
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-bottom p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- FOOTER SUPPORT BLOCK (Optional/Extra) --- */
+.support-block {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.support-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Solid Coffee Button for Footer */
 .btn-coffee {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     background-color: var(--kofi-blue);
-    color: #fff !important;
+    color: white;
     padding: 8px 16px;
     border-radius: 99px;
-    text-decoration: none !important;
     font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.btn-coffee:hover {
+    background-color: var(--kofi-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(41, 171, 224, 0.3);
+}
+
+.btn-coffee svg {
+    width: 18px;
+    height: 18px;
 }
 
 /* =========================================
-   8. RESPONSIVE
+   9. RESPONSIVE DESIGN
    ========================================= */
-@media (max-width: 768px) {
-    .hero-content { grid-template-columns: 1fr; }
-    .hero-buttons-row { flex-direction: column; align-items: stretch; }
-    .btn-vt, .btn-download { width: 100%; justify-content: center; }
-    .hero-extra-links { align-items: center; text-align: center; }
-    .nav-link { display: none; }
+@media (max-width: 1024px) {
+    .hero-content,
+    .philosophy-grid,
+    .tactical-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .hero-text {
+        order: 2;
+    }
+
+    .hero-image-container {
+        order: 1;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .nav {
+        gap: 1rem;
+    }
+
+    .nav-link {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    /* Center align hero support links on mobile */
+    .hero-extra-links {
+        align-items: center;
+        text-align: center;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tactical-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .cta-title {
+        font-size: 2.5rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    /* Center align footer support block on mobile */
+    .support-block {
+        align-items: center;
+    }
+
+   /* 1. Layout for the Primary Row (Download + Badge) */
+.hero-buttons-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap; /* Wraps buttons on mobile */
+}
+
+/* 2. The VirusTotal "Pill" Style */
+.vt-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 20px 6px 14px; /* Adjusted padding */
+    border-radius: 12px; /* Slightly squarer corners look better for badges */
+    text-decoration: none;
+    transition: all 0.2s ease;
+    height: 54px; /* Matches the standard height of your Download button */
+}
+
+.vt-pill:hover {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: rgba(34, 197, 94, 0.4);
+    transform: translateY(-2px);
+}
+
+/* New: Wrapper for the stacked text */
+.vt-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1; /* Keeps the lines close together */
+}
+
+/* "VirusTotal" - Small and on top */
+.vt-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #888; /* Dimmed color */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* "Clean" - Bigger and below */
+.vt-value {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Hover effect: Make the label brighter when hovering */
+.vt-pill:hover .vt-label {
+    color: #22c55e;
+}
+
+/* 3. Layout for Secondary Column (GitHub + Coffee) */
+.hero-extra-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.cta-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+    margin: 0;
+    font-style: italic;
+}
+
+.github-link {
+    color: var(--purple-500);
+    text-decoration: none;
+    font-style: italic;
+    font-size: 0.85rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.github-link:hover {
+    border-bottom-color: var(--purple-500);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .hero-buttons-row {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+    
+    .btn-large, .vt-pill {
+        width: 100%; /* Full width buttons on phone */
+        justify-content: center;
+    }
+
+    .hero-extra-links {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+
