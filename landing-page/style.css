@@ -923,23 +923,49 @@ body {
 .vt-pill {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 10px 16px;
-    border-radius: 50px; /* Pill shape */
+    padding: 6px 20px 6px 14px; /* Adjusted padding */
+    border-radius: 12px; /* Slightly squarer corners look better for badges */
     text-decoration: none;
-    color: #a0a0b0; /* Professional Gray Text */
-    font-weight: 600;
-    font-size: 0.9rem;
     transition: all 0.2s ease;
+    height: 54px; /* Matches the standard height of your Download button */
 }
 
 .vt-pill:hover {
     background: rgba(34, 197, 94, 0.1);
-    border-color: rgba(34, 197, 94, 0.5);
-    color: #ffffff;
+    border-color: rgba(34, 197, 94, 0.4);
     transform: translateY(-2px);
+}
+
+/* New: Wrapper for the stacked text */
+.vt-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1; /* Keeps the lines close together */
+}
+
+/* "VirusTotal" - Small and on top */
+.vt-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #888; /* Dimmed color */
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* "Clean" - Bigger and below */
+.vt-value {
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Hover effect: Make the label brighter when hovering */
+.vt-pill:hover .vt-label {
+    color: #22c55e;
 }
 
 /* 3. Layout for Secondary Column (GitHub + Coffee) */
@@ -989,5 +1015,6 @@ body {
         text-align: center;
     }
 }
+
 
 
