@@ -1,62 +1,336 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const parallaxScene = document.getElementById('parallaxScene');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gamer Gamma - Retro simplicity meets tactical gaming advantage. Control your display gamma with professional-grade sliders.">
+    <title>Gamer Gamma - Tactical Display Control for Gamers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="gradient-bg"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="url(#gradient)"/>
+                    <path d="M16 8L20 12L16 16L12 12L16 8Z" fill="white" opacity="0.9"/>
+                    <path d="M16 16L20 20L16 24L12 20L16 16Z" fill="white" opacity="0.6"/>
+                    <defs>
+                        <linearGradient id="gradient" x1="0" y1="0" x2="32" y2="32">
+                            <stop offset="0%" stop-color="#6366f1"/>
+                            <stop offset="100%" stop-color="#a855f7"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <span class="logo-text">Gamer Gamma</span>
+            </div>
+            <nav class="nav">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#philosophy" class="nav-link">Philosophy</a>
+                <a href="https://github.com/omaxtr/GamerGamma" class="nav-link" target="_blank">GitHub</a>
+                <a href="https://github.com/omaxtr/GamerGamma/releases/download/1.2/GamerGamma.zip" class="btn-primary-small">Download</a>
+            </nav>
+        </div>
+    </header>
 
-    // 3D Parallax Mouse Tracking (Kept because it's cool and doesn't affect brightness)
-    if (parallaxScene) {
-        const layers = parallaxScene.querySelectorAll('.parallax-layer');
-        document.addEventListener('mousemove', function (e) {
-            const mouseX = e.clientX / window.innerWidth;
-            const mouseY = e.clientY / window.innerHeight;
-            layers.forEach(layer => {
-                const depth = layer.getAttribute('data-depth') || 0.5;
-                const moveX = (mouseX - 0.5) * depth * 50;
-                const moveY = (mouseY - 0.5) * depth * 50;
-                layer.style.transform = `translateX(${moveX}px) translateY(${moveY}px) rotateY(${(mouseX - 0.5) * depth * 20}deg) rotateX(${-(mouseY - 0.5) * depth * 20}deg)`;
-            });
-        });
-    }
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-image-container">
+                        <div class="parallax-scene" id="parallaxScene">
+                            <div class="parallax-layer" data-depth="0.3">
+                                <img src="gamergamma-promo.png" alt="Gamer Gamma Interface" class="hero-image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-text">
+                        <div class="badge">v1.2</div>
+                        <h1 class="hero-title">GamerGamma</h1>
+                        <p class="hero-subtitle">For Competitive Gaming</p>
+                        <p class="hero-description">
+                            All your display control needs in <strong>ONE place</strong> with ease.
+                        </p>
+                        <p class="hero-description">
+                            Customise your gamma settings with our <strong>live</strong> and <strong>responsive</strong> sliders. And if you're a first time user, the <strong>quick presets</strong> will have you dominating in no time!
+                        </p>
+                        <p class="hero-description">
+                            Gamer Gamma allows you to control your display gamma for <strong>tactical FPS advantage</strong>, combining our <strong>simple</strong> and <strong>fast</strong> UI into an all in one package.
+                        </p>
+                        <p class="hero-description-bold">
+                            No need for any other <strong>bloated software</strong>, <strong>complex menus</strong> or <strong>heavy animations</strong> elsewhere.
+                        </p>
+                        <p class="hero-description-emphasis">
+                            Gamer Gamma is everything that is familiar to you.<br>
+                            <strong>Expand your gaming horizons today!</strong>
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="https://github.com/omaxtr/GamerGamma/releases/download/1.2/GamerGamma.zip" class="btn-large btn-download">
+                                Download Gamer Gamma for FREE
+                            </a>
+                        </div>
+                        <p class="cta-note">Want to try it out without affecting your current setup?<br><a href="https://github.com/omaxtr/GamerGamma/releases/download/1.2/GamerGamma.zip" class="download-link">Download the Portable .exe version</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (href !== '#' && href.length > 1) {
-                e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }
-        });
-    });
+        <section id="features" class="features">
+            <div class="container">
+                <h2 class="section-title">Built for <span class="gradient-text">Performance</span></h2>
+                <p class="section-subtitle">Everything you need. Nothing you don't.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect x="4" y="4" width="24" height="24" rx="4" stroke="url(#grad1)" stroke-width="2"/>
+                                <path d="M12 16L16 20L24 12" stroke="url(#grad1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="grad1" x1="4" y1="4" x2="28" y2="28">
+                                        <stop offset="0%" stop-color="#6366f1"/>
+                                        <stop offset="100%" stop-color="#a855f7"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Simple & Fast</h3>
+                        <p class="feature-description">High-response sliders that do exactly what they say. No learning curve, no manual required.</p>
+                    </div>
 
-    // Animated counter for stats (Kept this as it only affects numbers)
-    const animateValue = (element, start, end, duration) => {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            element.textContent = typeof end === 'number' ? Math.floor(progress * (end - start) + start) : end;
-            if (progress < 1) window.requestAnimationFrame(step);
-        };
-        window.requestAnimationFrame(step);
-    };
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <circle cx="16" cy="16" r="10" stroke="url(#grad2)" stroke-width="2"/>
+                                <path d="M16 6V16L22 19" stroke="url(#grad2)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad2" x1="6" y1="6" x2="26" y2="26">
+                                        <stop offset="0%" stop-color="#ec4899"/>
+                                        <stop offset="100%" stop-color="#f43f5e"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Instant Application</h3>
+                        <p class="feature-description">Changes apply in real-time. See your adjustments immediately without delays or restarts.</p>
+                    </div>
 
-    const statsObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const statValue = entry.target;
-                const finalValue = statValue.textContent;
-                if (finalValue !== '∞') {
-                    const numValue = parseInt(finalValue);
-                    if (!isNaN(numValue)) animateValue(statValue, 0, numValue, 1500);
-                }
-                statsObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M8 12L16 4L24 12M8 20L16 12L24 20" stroke="url(#grad3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="grad3" x1="8" y1="4" x2="24" y2="20">
+                                        <stop offset="0%" stop-color="#14b8a6"/>
+                                        <stop offset="100%" stop-color="#06b6d4"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Multi-Channel Control</h3>
+                        <p class="feature-description">Master channels for RGB control plus advanced stabilizers for precise shadow detail.</p>
+                    </div>
 
-    document.querySelectorAll('.stat-value').forEach(stat => statsObserver.observe(stat));
-});
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect x="6" y="10" width="20" height="16" rx="2" stroke="url(#grad4)" stroke-width="2"/>
+                                <path d="M11 6H21M16 6V10" stroke="url(#grad4)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad4" x1="6" y1="6" x2="26" y2="26">
+                                        <stop offset="0%" stop-color="#f59e0b"/>
+                                        <stop offset="100%" stop-color="#ef4444"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Profile System</h3>
+                        <p class="feature-description">Save and switch between different configurations instantly. Perfect for different games and scenarios.</p>
+                    </div>
 
-// ALL SCROLL BRIGHTENING / HEADER CHANGING LOGIC REMOVED
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M28 16C28 22.6274 22.6274 28 16 28C9.37258 28 4 22.6274 4 16C4 9.37258 9.37258 4 16 4" stroke="url(#grad5)" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M16 4C19.866 4 23.2906 6.27543 25 9.6" stroke="url(#grad5)" stroke-width="2" stroke-linecap="round"/>
+                                <defs>
+                                    <linearGradient id="grad5" x1="4" y1="4" x2="28" y2="28">
+                                        <stop offset="0%" stop-color="#8b5cf6"/>
+                                        <stop offset="100%" stop-color="#6366f1"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">No Bloat</h3>
+                        <p class="feature-description">Tiny footprint, zero dependencies. No accounts, no telemetry, no unnecessary features.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <path d="M16 4L20 12L28 14L22 20L24 28L16 24L8 28L10 20L4 14L12 12L16 4Z" stroke="url(#grad6)" stroke-width="2" stroke-linejoin="round"/>
+                                <defs>
+                                    <linearGradient id="grad6" x1="4" y1="4" x2="28" y2="28">
+                                        <stop offset="0%" stop-color="#fbbf24"/>
+                                        <stop offset="100%" stop-color="#f59e0b"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Tactical Advantage</h3>
+                        <p class="feature-description">Optimized for Valorant, CS2, Tarkov, and Dark Souls. See enemies in dark corners before they see you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="philosophy">
+            <div class="container">
+                <div class="philosophy-grid">
+                    <div class="philosophy-content">
+                        <div class="badge">The Philosophy</div>
+                        <h2 class="philosophy-title">Retro Simplicity</h2>
+                        <p class="philosophy-text">
+                            Gamer Gamma is built for those who miss the <strong>"just works"</strong> efficiency of classic utilities like Gamma Panel. Unlike modern apps that are cluttered with 3D effects, heavy animations, and complex menus, Gamer Gamma goes back to basics:
+                        </p>
+                        <p class="philosophy-text">
+                            Simple, high-response sliders that do exactly what they say.
+                        </p>
+                        <div class="philosophy-highlights">
+                            <div class="highlight-item">
+                                <div class="highlight-icon no">✕</div>
+                                <span>No 3D fluff</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon no">✕</div>
+                                <span>No account required</span>
+                            </div>
+                            <div class="highlight-item">
+                                <div class="highlight-icon yes">✓</div>
+                                <span>Just pure control over your pixels</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="philosophy-visual">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <div class="code-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="code-title">GamerGamma.config</div>
+                            </div>
+                            <div class="code-content">
+                                <code><span class="code-key">Master</span>: <span class="code-value">1.4</span></code>
+                                <code><span class="code-key">Red</span>: <span class="code-value">1.0</span></code>
+                                <code><span class="code-key">Green</span>: <span class="code-value">1.0</span></code>
+                                <code><span class="code-key">Blue</span>: <span class="code-value">1.0</span></code>
+                                <code><span class="code-key">BlackStabilizer</span>: <span class="code-value">0.05</span></code>
+                                <code><span class="code-comment">// Simple. Effective. Fast.</span></code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tactical">
+            <div class="container">
+                <div class="tactical-grid">
+                    <div class="tactical-visual">
+                        <div class="comparison-slider">
+                            <div class="comparison-label comparison-before">Before</div>
+                            <div class="comparison-gradient"></div>
+                            <div class="comparison-label comparison-after">After</div>
+                        </div>
+                    </div>
+                    <div class="tactical-content">
+                        <div class="badge badge-accent">Tactical Gaming Advantage</div>
+                        <h2 class="tactical-title">"Daylight in the Dark"</h2>
+                        <p class="tactical-text">
+                            Built specifically for high-tension FPS games (<strong>Valorant, CS2, Tarkov, Dark Souls</strong>), Gamer Gamma gives you a professional tactical edge.
+                        </p>
+                        <p class="tactical-text">
+                            Boost shadow detail to spot enemies lurking in dark corners. Fine-tune your display to match your competitive needs without compromising color accuracy in bright areas.
+                        </p>
+                        <div class="tactical-stats">
+                            <div class="stat-item">
+                                <div class="stat-value">0ms</div>
+                                <div class="stat-label">Latency</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">16</div>
+                                <div class="stat-label">Adjustable Channels</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value">∞</div>
+                                <div class="stat-label">Configurations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to gain the edge?</h2>
+                    <p class="cta-description">Download Gamer Gamma now and experience professional-grade display control.</p>
+                    <div class="cta-buttons">
+                        <a href="https://github.com/omaxtr/GamerGamma/releases/download/1.2/GamerGamma.zip" class="btn-large btn-download btn-glow">
+                            Download v1.2
+                        </a>
+                        <a href="https://github.com/omaxtr/GamerGamma" class="btn-large btn-secondary" target="_blank">
+                            View on GitHub
+                        </a>
+                    </div>
+                    <p class="cta-note">Free • Open Source • No Account Required</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="8" fill="url(#gradient2)"/>
+                            <path d="M16 8L20 12L16 16L12 12L16 8Z" fill="white" opacity="0.9"/>
+                            <path d="M16 16L20 20L16 24L12 20L16 16Z" fill="white" opacity="0.6"/>
+                            <defs>
+                                <linearGradient id="gradient2" x1="0" y1="0" x2="32" y2="32">
+                                    <stop offset="0%" stop-color="#6366f1"/>
+                                    <stop offset="100%" stop-color="#a855f7"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                        <span class="logo-text">Gamer Gamma</span>
+                    </div>
+                    <p class="footer-tagline">Pure control over your pixels.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://github.com/omaxtr/GamerGamma" target="_blank">GitHub</a>
+                    <a href="https://github.com/omaxtr/GamerGamma/releases" target="_blank">Releases</a>
+                    <a href="https://github.com/omaxtr/GamerGamma/issues" target="_blank">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gamer Gamma. Open Source Software.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
