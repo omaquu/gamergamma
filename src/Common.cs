@@ -4,8 +4,11 @@ using System.Collections.Generic;
 
 namespace GamerGamma
 {
+    public class PointDef { public int X { get; set; } public int Y { get; set; } }
+
     public enum ChannelMode { Linked, Red, Green, Blue }
     public enum GammaApi { GDI, VESA, NvAPI }
+    public enum TransferMode { PowerLaw, BT709, BT2020 }
 
     public class ChannelData
     {
@@ -32,8 +35,26 @@ namespace GamerGamma
         public ChannelData Blue { get; set; } = new ChannelData();
         public double Saturation { get; set; } = 1.0;
         public double Hue { get; set; }
+        public double Luminance { get; set; }
+        public double SmartContrast { get; set; }
+        public double DeHaze { get; set; }
+        public double Temperature { get; set; }
+        public double Tint { get; set; }
+        public double Bump { get; set; }
+        public int ShadowTint { get; set; }
+        public int HighlightTint { get; set; }
+        public List<PointDef> CurvesR { get; set; }
+        public List<PointDef> CurvesG { get; set; }
+        public List<PointDef> CurvesB { get; set; }
+        public List<PointDef> CurvesMaster { get; set; }
+        
+        public bool Smooth { get; set; }
+
+        // public List<PointDef> PointCurvePoints { get; set; } // Removed
+
         public double Dithering { get; set; }
         public double Sharpness { get; set; }
+        public TransferMode TransferMode { get; set; }
         public GammaApi Api { get; set; }
     }
 

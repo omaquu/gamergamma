@@ -22,7 +22,7 @@
     --text-primary: #ffffff;
     --text-secondary: #a0a0b0;
     --text-muted: #6b6b80;
-    
+
     /* Ko-fi Official Colors */
     --kofi-blue: #29abe0;
     --kofi-blue-hover: #1a96c9;
@@ -63,8 +63,13 @@ body {
 }
 
 @keyframes starsMove {
-    from { transform: translateY(0); }
-    to { transform: translateY(-1000px); }
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
 }
 
 .gradient-bg {
@@ -75,7 +80,7 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: 1;
-    background: 
+    background:
         radial-gradient(ellipse 80% 50% at 20% 30%, rgba(168, 85, 247, 0.15) 0%, transparent 50%),
         radial-gradient(ellipse 70% 60% at 80% 70%, rgba(217, 70, 239, 0.12) 0%, transparent 50%),
         radial-gradient(ellipse 90% 40% at 50% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
@@ -114,6 +119,23 @@ body {
     gap: 0.75rem;
     font-size: 1.25rem;
     font-weight: 700;
+}
+
+.logo svg {
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 16px rgba(217, 70, 239, 0.4));
+    animation: bulbGlow 3s ease-in-out infinite;
+}
+
+@keyframes bulbGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.6)) drop-shadow(0 0 16px rgba(217, 70, 239, 0.4));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.9)) drop-shadow(0 0 24px rgba(217, 70, 239, 0.6));
+    }
 }
 
 .logo-text {
@@ -191,7 +213,7 @@ body {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 
+    box-shadow:
         0 20px 60px rgba(168, 85, 247, 0.3),
         0 0 100px rgba(217, 70, 239, 0.2);
     transform: rotateY(-5deg) rotateX(2deg);
@@ -309,11 +331,13 @@ body {
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.2s ease;
-    height: 54px; /* Matches the height of the Download button roughly */
+    height: 54px;
+    /* Matches the height of the Download button roughly */
 }
 
 .vt-badge:hover {
-    background: rgba(34, 197, 94, 0.1); /* Subtle green tint on hover */
+    background: rgba(34, 197, 94, 0.1);
+    /* Subtle green tint on hover */
     border-color: rgba(34, 197, 94, 0.4);
     transform: translateY(-2px);
 }
@@ -323,11 +347,13 @@ body {
     height: 28px;
     border-radius: 50%;
     background: transparent;
-    border: 2px solid #22c55e; /* Green Circle */
+    border: 2px solid #22c55e;
+    /* Green Circle */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #22c55e; /* Green Checkmark */
+    color: #22c55e;
+    /* Green Checkmark */
     box-shadow: 0 0 10px rgba(34, 197, 94, 0.2);
 }
 
@@ -354,17 +380,26 @@ body {
 @media (max-width: 768px) {
     .hero-buttons {
         flex-direction: column;
-        align-items: stretch; /* Makes buttons full width on mobile */
+        align-items: stretch;
+        /* Makes buttons full width on mobile */
     }
-    
+
     .vt-badge {
-        justify-content: center; /* Centers the badge content on mobile */
+        justify-content: center;
+        /* Centers the badge content on mobile */
     }
 }
 
 @keyframes pulse {
-    0%, 100% { box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4); }
-    50% { box-shadow: 0 8px 40px rgba(212, 175, 55, 0.6); }
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 8px 40px rgba(212, 175, 55, 0.6);
+    }
 }
 
 .btn-secondary {
@@ -391,7 +426,8 @@ body {
 .cta-note {
     font-size: 0.95rem;
     color: var(--text-muted);
-    margin: 0; /* Removed top margin to fit in flex container */
+    margin: 0;
+    /* Removed top margin to fit in flex container */
 }
 
 .download-link {
@@ -411,7 +447,8 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: rgba(41, 171, 224, 0.1); /* Transparent Blue */
+    background-color: rgba(41, 171, 224, 0.1);
+    /* Transparent Blue */
     color: var(--kofi-blue);
     padding: 6px 14px;
     border-radius: 99px;
@@ -423,7 +460,8 @@ body {
 }
 
 .btn-coffee-hero:hover {
-    background-color: var(--kofi-blue); /* Solid Blue on Hover */
+    background-color: var(--kofi-blue);
+    /* Solid Blue on Hover */
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(41, 171, 224, 0.3);
@@ -585,9 +623,17 @@ body {
     opacity: 0.5;
 }
 
-.code-dots span:nth-child(1) { background: #ef4444; }
-.code-dots span:nth-child(2) { background: #f59e0b; }
-.code-dots span:nth-child(3) { background: #22c55e; }
+.code-dots span:nth-child(1) {
+    background: #ef4444;
+}
+
+.code-dots span:nth-child(2) {
+    background: #f59e0b;
+}
+
+.code-dots span:nth-child(3) {
+    background: #22c55e;
+}
 
 .code-title {
     color: var(--text-secondary);
@@ -651,16 +697,17 @@ body {
 /* 1. The Container - This holds the actual image */
 .comparison-slider {
     position: relative;
-    height: 400px; /* Increased height for better visibility */
+    height: 400px;
+    /* Increased height for better visibility */
     border-radius: 12px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid #1a1a25;
-    
+
     /* ADD YOUR IMAGE HERE */
-    background-image: url('beforeafter.png') !important; 
+    background-image: url('beforeafter.png') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -673,20 +720,24 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 1; /* Sits above the background image */
-    
+    z-index: 1;
+    /* Sits above the background image */
+
     /* 
        This gradient creates the "Before/After" effect:
        Left side is darker (Original Gamma)
        Right side is clearer (Gamer Gamma applied)
     */
-    background: linear-gradient(
-        90deg, 
-        rgba(5, 5, 8, 0.85) 0%,         /* Heavy dark overlay at the very edge */
-        rgba(168, 85, 247, 0.2) 40%,    /* Your Brand Purple (Simulating darkness) */
-        rgba(212, 175, 55, 0.1) 55%,    /* Your Brand Gold (Transition point) */
-        rgba(212, 175, 55, 0.2) 100%      /* Crystal Clear edge (The Result) */
-    ) !important;
+    background: linear-gradient(90deg,
+            rgba(5, 5, 8, 0.85) 0%,
+            /* Heavy dark overlay at the very edge */
+            rgba(168, 85, 247, 0.2) 40%,
+            /* Your Brand Purple (Simulating darkness) */
+            rgba(212, 175, 55, 0.1) 55%,
+            /* Your Brand Gold (Transition point) */
+            rgba(212, 175, 55, 0.2) 100%
+            /* Crystal Clear edge (The Result) */
+        ) !important;
 }
 
 /* 3. Ensure labels stay on top of the gradient */
@@ -694,10 +745,11 @@ body {
     position: absolute;
     font-size: 1.25rem;
     font-weight: 800;
-    z-index: 2; /* Sits above the gradient */
+    z-index: 2;
+    /* Sits above the gradient */
     text-transform: uppercase;
     letter-spacing: 1px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .comparison-before {
@@ -841,7 +893,7 @@ body {
     font-size: 0.9rem;
     text-decoration: none;
     transition: all 0.2s ease;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .btn-coffee:hover {
@@ -859,6 +911,7 @@ body {
    9. RESPONSIVE DESIGN
    ========================================= */
 @media (max-width: 1024px) {
+
     .hero-content,
     .philosophy-grid,
     .tactical-grid {
@@ -903,7 +956,7 @@ body {
     .hero-buttons {
         flex-direction: column;
     }
-    
+
     /* Center align hero support links on mobile */
     .hero-extra-links {
         align-items: center;
@@ -928,181 +981,189 @@ body {
         gap: 2rem;
         text-align: center;
     }
-    
+
     /* Center align footer support block on mobile */
     .support-block {
         align-items: center;
     }
 
-.logo svg {
-    /* Pink glow that complements the purple and orange */
-    filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.4));
-    transition: filter 0.3s ease;
-}
+    .logo svg {
+        /* Pink glow that complements the purple and orange */
+        filter: drop-shadow(0 0 5px rgba(236, 72, 153, 0.4));
+        transition: filter 0.3s ease;
+    }
 
-.logo:hover svg {
-    filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.7));
-}
-   
-   /* 1. Layout for the Primary Row (Download + Badge) */
-.hero-buttons-row {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    margin-bottom: 1.5rem;
-    flex-wrap: wrap; /* Wraps buttons on mobile */
-}
+    .logo:hover svg {
+        filter: drop-shadow(0 0 12px rgba(236, 72, 153, 0.7));
+    }
 
-/* 2. The VirusTotal "Pill" Style */
-.vt-pill, 
-.vt-pill:link, 
-.vt-pill:visited {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 6px 20px 6px 14px;
-    border-radius: 12px;
-    text-decoration: none !important; /* Force no underline */
-    transition: all 0.2s ease;
-    height: 54px;
-    cursor: pointer;
-    color: #22c55e !important; /* Forces the overall button/icon color to Green */
-}
-
-.vt-pill:hover {
-    background: rgba(34, 197, 94, 0.1);
-    border-color: rgba(34, 197, 94, 0.4);
-    transform: translateY(-2px);
-    cursor: pointer;
-    color: #22c55e !important; /* Keep it green on hover */
-}
-
-/* New: Wrapper for the stacked text */
-.vt-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: 1.1; /* Keeps the lines close together */
-}
-
-/* "VirusTotal" - Small and on top */
-.vt-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    color: #ffffff; /* Dimmed color */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-/* "Clean" - Bigger and below */
-.vt-value {
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-/* Hover effect: Make the label brighter when hovering */
-.vt-pill:hover .vt-label {
-    color: #22c55e;
-}
-
-/* 3. Layout for Secondary Column (GitHub + Coffee) */
-.hero-extra-links {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.cta-note {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-    margin: 0;
-    font-style: italic;
-}
-
-.github-link {
-    all: unset;
-    font-style: italic;
-    font-size: 0.75rem;
-    cursor: pointer;
-    color: var(--text-muted);
-}
-
-/* Mobile Adjustments */
-@media (max-width: 768px) {
+    /* 1. Layout for the Primary Row (Download + Badge) */
     .hero-buttons-row {
-        flex-direction: column;
-        width: 100%;
-        gap: 1rem;
-    }
-    
-    .btn-large, .vt-pill {
-        width: 100%; /* Full width buttons on phone */
-        justify-content: center;
-    }
-
-    .hero-extra-links {
+        display: flex;
         align-items: center;
-        text-align: center;
+        gap: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+        /* Wraps buttons on mobile */
     }
-}
 
-/* 1. The Pulse Keyframes - Pure Amber/Gold */
-@keyframes bulb-pulse-gold {
-    0% {
-        /* Minimal Amber Glow */
-        filter: drop-shadow(0 0 2px #fbbf24) drop-shadow(0 0 5px rgba(251, 191, 36, 0.2));
-        transform: scale(1);
+    /* 2. The VirusTotal "Pill" Style */
+    .vt-pill,
+    .vt-pill:link,
+    .vt-pill:visited {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 6px 20px 6px 14px;
+        border-radius: 12px;
+        text-decoration: none !important;
+        /* Force no underline */
+        transition: all 0.2s ease;
+        height: 54px;
+        cursor: pointer;
+        color: #22c55e !important;
+        /* Forces the overall button/icon color to Green */
     }
-    50% {
-        /* Intense Amber/Yellow Glow + slight scale up */
-        filter: drop-shadow(0 0 10px #fbbf24) 
-                drop-shadow(0 0 20px #f59e0b)
-                drop-shadow(0 0 35px rgba(251, 191, 36, 0.5));
-        transform: scale(1.1);
+
+    .vt-pill:hover {
+        background: rgba(34, 197, 94, 0.1);
+        border-color: rgba(34, 197, 94, 0.4);
+        transform: translateY(-2px);
+        cursor: pointer;
+        color: #22c55e !important;
+        /* Keep it green on hover */
     }
-    100% {
-        filter: drop-shadow(0 0 2px #fbbf24) drop-shadow(0 0 5px rgba(251, 191, 36, 0.2));
-        transform: scale(1);
+
+    /* New: Wrapper for the stacked text */
+    .vt-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: 1.1;
+        /* Keeps the lines close together */
     }
-}
 
-/* 2. Apply it to the Logo SVG specifically */
-.header .logo svg {
-    /* Critical: This allows the glow to spread outside the 32x32 box */
-    overflow: visible !important; 
-    
-    /* Apply the 3s pulse matching your button */
-    animation: bulb-pulse-gold 3s ease-in-out infinite !important;
-    
-    /* Ensure it pulses from the center */
-    transform-origin: center center !important;
-    
-    /* Remove any leftover square box shadows or backgrounds */
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-}
+    /* "VirusTotal" - Small and on top */
+    .vt-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: #ffffff;
+        /* Dimmed color */
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
 
-/* 3. Helper to ensure the parent container doesn't cut the light */
-.header .logo {
-    overflow: visible !important;
-    display: flex;
-    align-items: center;
-}
+    /* "Clean" - Bigger and below */
+    .vt-value {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1rem;
+    }
 
-.bulb-icon {
-    overflow: visible !important;
-    display: inline-block !important;
-    /* Use the gold pulse animation we made */
-    animation: bulb-pulse-gold 3s ease-in-out infinite !important;
-    transform-origin: center center !important;
-}
+    /* Hover effect: Make the label brighter when hovering */
+    .vt-pill:hover .vt-label {
+        color: #22c55e;
+    }
+
+    /* 3. Layout for Secondary Column (GitHub + Coffee) */
+    .hero-extra-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .cta-note {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        margin: 0;
+        font-style: italic;
+    }
+
+    .github-link {
+        all: unset;
+        font-style: italic;
+        font-size: 0.75rem;
+        cursor: pointer;
+        color: var(--text-muted);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+        .hero-buttons-row {
+            flex-direction: column;
+            width: 100%;
+            gap: 1rem;
+        }
+
+        .btn-large,
+        .vt-pill {
+            width: 100%;
+            /* Full width buttons on phone */
+            justify-content: center;
+        }
+
+        .hero-extra-links {
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    /* 1. The Pulse Keyframes - Pure Amber/Gold */
+    @keyframes bulb-pulse-gold {
+        0% {
+            /* Minimal Amber Glow */
+            filter: drop-shadow(0 0 2px #fbbf24) drop-shadow(0 0 5px rgba(251, 191, 36, 0.2));
+            transform: scale(1);
+        }
+
+        50% {
+            /* Intense Amber/Yellow Glow + slight scale up */
+            filter: drop-shadow(0 0 10px #fbbf24) drop-shadow(0 0 20px #f59e0b) drop-shadow(0 0 35px rgba(251, 191, 36, 0.5));
+            transform: scale(1.1);
+        }
+
+        100% {
+            filter: drop-shadow(0 0 2px #fbbf24) drop-shadow(0 0 5px rgba(251, 191, 36, 0.2));
+            transform: scale(1);
+        }
+    }
+
+    /* 2. Apply it to the Logo SVG specifically */
+    .header .logo svg {
+        /* Critical: This allows the glow to spread outside the 32x32 box */
+        overflow: visible !important;
+
+        /* Apply the 3s pulse matching your button */
+        animation: bulb-pulse-gold 3s ease-in-out infinite !important;
+
+        /* Ensure it pulses from the center */
+        transform-origin: center center !important;
+
+        /* Remove any leftover square box shadows or backgrounds */
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* 3. Helper to ensure the parent container doesn't cut the light */
+    .header .logo {
+        overflow: visible !important;
+        display: flex;
+        align-items: center;
+    }
+
+    .bulb-icon {
+        overflow: visible !important;
+        display: inline-block !important;
+        /* Use the gold pulse animation we made */
+        animation: bulb-pulse-gold 3s ease-in-out infinite !important;
+        transform-origin: center center !important;
+    }
 
 
 
@@ -1118,3 +1179,135 @@ body {
 
 
 
+    /* =========================================
+   9. ADVANCED & CURVE SECTIONS (v1.3)
+   ========================================= */
+    .advanced-features,
+    .curve-section {
+        padding: 8rem 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .advanced-grid,
+    .curve-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 6rem;
+        align-items: center;
+    }
+
+    .advanced-title,
+    .curve-title {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 2rem;
+    }
+
+    .advanced-description,
+    .curve-description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+    }
+
+    .advanced-list,
+    .curve-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .advanced-list li,
+    .curve-list li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 500;
+        font-size: 1.1rem;
+    }
+
+    .advanced-list li::before,
+    .curve-list li::before {
+        content: "→";
+        color: var(--purple-500);
+        font-weight: 800;
+    }
+
+    .media-container {
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+    }
+
+    .pro-screenshot {
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        transition: transform 0.5s ease;
+    }
+
+    .pro-screenshot:hover {
+        transform: scale(1.02);
+    }
+
+    .badge-advanced {
+        background: rgba(99, 102, 241, 0.15);
+        color: var(--indigo-500);
+        border-color: rgba(99, 102, 241, 0.3);
+    }
+
+    .badge-pro {
+        background: rgba(217, 70, 239, 0.15);
+        color: var(--magenta-500);
+        border-color: rgba(217, 70, 239, 0.3);
+    }
+
+    /* FAQ Styles */
+    .faq {
+        padding: 6rem 0;
+        background: rgba(255, 255, 255, 0.01);
+    }
+
+    .faq-grid {
+        max-width: 800px;
+        margin: 4rem auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .faq-question {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+    }
+
+    .faq-answer {
+        color: var(--text-secondary);
+        line-height: 1.8;
+    }
+
+    @media (max-width: 968px) {
+
+        .advanced-grid,
+        .curve-grid {
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            text-align: center;
+        }
+
+        .curve-grid .curve-visual {
+            order: 2;
+        }
+
+        .advanced-list li,
+        .curve-list li {
+            justify-content: center;
+        }
+    }
