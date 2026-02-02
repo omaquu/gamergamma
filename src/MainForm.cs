@@ -104,12 +104,12 @@ namespace GamerGamma
                 return b;
             }
 
-            // Buttons renaming as requested
+            // Buttons renaming
             var fBtn = new Font(FontFamily.GenericSansSerif, 7);
             
-            // Row 0: omaxtr | FPS Gamer
-            var btnOmaxtr = CreateCtxBtn("omaxtr", ChannelMode.Linked, Color.FromArgb(255, 128, 0)); // Orange like coffee button
-            btnOmaxtr.Click += (s,e) => {
+            // Row 0: omaquu | FPS Gamer
+            var btnOmaquu = CreateCtxBtn("omaquu", ChannelMode.Linked, Color.FromArgb(255, 128, 0)); // Orange like coffee button
+            btnOmaquu.Click += (s,e) => {
                 _gamma.Reset();
                 _gamma.TransferMode = TransferMode.BT2020;
                 _gamma.Red.BlackStab = _gamma.Green.BlackStab = _gamma.Blue.BlackStab = 0.404;
@@ -121,13 +121,13 @@ namespace GamerGamma
                 _gamma.Update();
                 DrawPreview();
             };
-            btnOmaxtr.Font = fBtn;
-            btnOmaxtr.Width = (leftW - 20) / 2 - 4;
-            btnOmaxtr.BackColor = Color.FromArgb(255, 128, 0); // Orange
-            btnOmaxtr.ForeColor = Color.White;
-            btnOmaxtr.FlatAppearance.BorderSize = 1;
-            btnOmaxtr.FlatAppearance.BorderColor = Color.White;
-            pnlQuickGrid.Controls.Add(btnOmaxtr, 0, 0);
+            btnOmaquu.Font = fBtn;
+            btnOmaquu.Width = (leftW - 20) / 2 - 4;
+            btnOmaquu.BackColor = Color.FromArgb(255, 128, 0); // Orange
+            btnOmaquu.ForeColor = Color.White;
+            btnOmaquu.FlatAppearance.BorderSize = 1;
+            btnOmaquu.FlatAppearance.BorderColor = Color.White;
+            pnlQuickGrid.Controls.Add(btnOmaquu, 0, 0);
 
             var btnFps = CreateCtxBtn("FPS Gamer", ChannelMode.Linked, Color.HotPink);
             btnFps.Click += (s,e) => {
@@ -230,7 +230,7 @@ namespace GamerGamma
 
             // Relocated Footer Info (Into Left Panel bottom)
             var pnlIntegratedFooter = new FlowLayoutPanel { Width = leftW, Height = 120, FlowDirection = FlowDirection.TopDown, Margin = new Padding(0, 5, 0, 0) };
-            var lblFooter = new Label { Text = "© omaxtr 2026 // twitch.tv/omaxtr\nGamerGamma v1.4", Width = leftW, Height = 40, TextAlign = ContentAlignment.TopCenter, ForeColor = Color.Gray, Font = new Font("Consolas", 7) };
+            var lblFooter = new Label { Text = "© omaquu 2026 // twitch.tv/omaquu\nGamerGamma v1.4", Width = leftW, Height = 40, TextAlign = ContentAlignment.TopCenter, ForeColor = Color.Gray, Font = new Font("Consolas", 7) };
             var btnCoffee = new Button { 
                 Text = "☕ Buy me a Coffee", 
                 FlatStyle = FlatStyle.Flat, 
@@ -242,7 +242,7 @@ namespace GamerGamma
                 Margin = new Padding((leftW - 140) / 2, 0, 0, 0)
             };
             btnCoffee.FlatAppearance.BorderSize = 0;
-            btnCoffee.Click += (s, e) => { System.Diagnostics.Process.Start("https://ko-fi.com/omaxtr/tip"); };
+            btnCoffee.Click += (s, e) => { System.Diagnostics.Process.Start("https://ko-fi.com/omaquu/tip"); };
             
             pnlIntegratedFooter.Controls.Add(lblFooter);
             pnlIntegratedFooter.Controls.Add(btnCoffee);
@@ -1453,3 +1453,4 @@ namespace GamerGamma
         }
     }
 }
+
