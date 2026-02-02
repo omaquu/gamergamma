@@ -101,5 +101,6 @@ Professional 10-bit precision **Point Curve Editor**:
 **Gamer Gamma** is the spiritual successor to **Gamma Panel** (Original by Tomaž Šolc).
 
 Built with ❤️ for gamers by gamers.  
-**Implementation**: omaxtr  
+**Implementation**: omaquu  
 **Logic Assistant**: Antigravity AI
+
