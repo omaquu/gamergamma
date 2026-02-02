@@ -11,8 +11,8 @@
     <!-- Clean Build Settings -->
     <DebugType>none</DebugType>
     <DebugSymbols>false</DebugSymbols>
-    <Version>1.2</Version>
-    <Authors>omaxtr</Authors>
+    <Version>1.4</Version>
+    <Authors>omaquu</Authors>
     <Description>Tactical Gamma Adjustment Utility for Gamers</Description>
   </PropertyGroup>
 
@@ -27,5 +27,6 @@
   <ItemGroup>
     <None Include="app.manifest" Condition="Exists('app.manifest')" />
   </ItemGroup>
+
 
 </Project>
