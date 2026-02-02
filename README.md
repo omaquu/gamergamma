@@ -70,7 +70,7 @@ Professional 10-bit precision **Point Curve Editor**:
 
 ## 📥 Download & Install
 
-**Latest Release**: [v1.4 - Download GamerGamma.exe](https://github.com/omaxtr/GamerGamma/releases/download/1.4/GamerGamma.exe)
+**Latest Release**: [v1.4 - Download GamerGamma.exe](https://github.com/omaquu/GamerGamma/releases/download/1.4/GamerGamma.exe)
 
 1. Download `GamerGamma.exe` from the releases
 2. Run it - no installation needed!
@@ -103,4 +103,5 @@ Professional 10-bit precision **Point Curve Editor**:
 Built with ❤️ for gamers by gamers.  
 **Implementation**: omaquu  
 **Logic Assistant**: Antigravity AI
+
 
